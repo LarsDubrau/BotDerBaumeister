@@ -1,19 +1,17 @@
 package de.bobmc.discord_bot;
 
-import de.bobmc.discord_bot.commands.ActivityStatsCommand;
 import de.bobmc.discord_bot.commands.AdviceCommand;
 import de.bobmc.discord_bot.commands.CommandManager;
 import de.bobmc.discord_bot.commands.R6StatsCommand;
-import de.bobmc.discord_bot.listeners.ActivityStatsListener;
 import de.bobmc.discord_bot.listeners.GreetingsListener;
 import de.bobmc.discord_bot.utils.ConfigManager;
+import de.bobmc.discord_bot.utils.Logging;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 
 import javax.security.auth.login.LoginException;
 
 public class Main {
-
     public static void main(String[] args) {
         if(args.length < 1){
             throw new IllegalArgumentException("No config file path given");
@@ -23,6 +21,8 @@ public class Main {
             JDABuilder builder = JDABuilder.createDefault(ConfigManager.getInstance().getString("botToken"));
             JDA jda = builder.build();
             jda.awaitReady();
+
+            Logging.getInstance().logInfo("Discord Bot wurde gestartet");
 
             //create command manager and add supported commands
             CommandManager commandManager = new CommandManager();
