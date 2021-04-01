@@ -21,7 +21,8 @@ public class GreetingsListener extends ListenerAdapter {
         builder.setTitle("Hallo " + event.getMember().getEffectiveName());
         builder.setImage(gifUrl);
 
-        event.getMember().getDefaultChannel().sendMessage(builder.build())
-                .queue(m -> m.delete().queueAfter(10, TimeUnit.SECONDS));
+        event.getMember().getGuild().getDefaultChannel().sendMessage(builder.build()).queue(
+                m -> m.delete().queueAfter(10, TimeUnit.SECONDS)
+        );
     }
 }
