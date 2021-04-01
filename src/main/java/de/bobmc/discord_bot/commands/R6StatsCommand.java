@@ -1,11 +1,13 @@
 package de.bobmc.discord_bot.commands;
 
 import de.bobmc.discord_bot.apis.R6StatsStats;
+import de.bobmc.discord_bot.model.R6UserStats;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 
 public class R6StatsCommand implements Command{
@@ -16,47 +18,29 @@ public class R6StatsCommand implements Command{
             return;
         }
         String username = args[1];
-        JSONObject response = R6StatsStats.getPlayerStats(username);
+        R6UserStats response = R6StatsStats.getPlayerStats(username);
 
         if(response == null){
             channel.sendMessage("Der Spieler wurde nicht gefunden").queue();
             return;
         }
 
-        //get level
-        int level = response.getJSONObject("progression").getInt("level");
-
-        //get stats
-        JSONObject stats = response.getJSONObject("stats").getJSONObject("general");
-        int kills = stats.getInt("kills");
-        int wins = stats.getInt("wins");
-        int losses = stats.getInt("losses");
-        int headshots = stats.getInt("headshots");
-        int penetrationsKills = stats.getInt("penetration_kills");
-        int gadgetsDestroyed = stats.getInt("gadgets_destroyed");
-        int timePlayed = stats.getInt("playtime") / 3600;
-        String avatarUrl = response.getString("avatar_url_146");
-        double kd = stats.getDouble("kd");
-        int suicides = stats.getInt("suicides");
         DecimalFormat df = new DecimalFormat();
         df.setMaximumFractionDigits(2);
-        double winrate = (double) wins / ((double) wins + losses);
-        double headshotRate = (double) headshots / (double) kills;
-
 
         EmbedBuilder builder = new EmbedBuilder();
         builder.setTitle(args[1]);
-        builder.setImage(avatarUrl);
-        builder.setDescription("Level " + level);
-        builder.addField("Wins insgesamt", String.valueOf(wins), true);
-        builder.addField("Kills insgesamt", String.valueOf(kills), true);
-        builder.addField("Winrate", df.format(winrate * 100) + "%", true);
-        builder.addField("Headshotrate", df.format(headshotRate * 100) + "%", true);
-        builder.addField("Penetrationkills", String.valueOf(penetrationsKills), true);
-        builder.addField("Zerstörte Gadgets", String.valueOf(gadgetsDestroyed), true);
-        builder.addField("Spielzeit", timePlayed + " Stunden", true);
-        builder.addField("Selbstmord", String.valueOf(suicides), true);
-        builder.addField("K/D", String.valueOf(kd), true);
+        builder.setImage(response.getAvatarUrl());
+        builder.setDescription("Level " + response.getLevel());
+        builder.addField("Wins insgesamt", String.valueOf(response.getWins()), true);
+        builder.addField("Kills insgesamt", String.valueOf(response.getKills()), true);
+        builder.addField("Winrate", df.format(response.getWinRate() * 100) + "%", true);
+        builder.addField("Headshotrate", df.format(response.getHeadshotRate() * 100) + "%", true);
+        builder.addField("Penetrationkills", String.valueOf(response.getPenetrationKills()), true);
+        builder.addField("Zerstörte Gadgets", String.valueOf(response.getGadgetsDestroyed()), true);
+        builder.addField("Spielzeit", response.getTimePlayed() + " Stunden", true);
+        builder.addField("Selbstmord", String.valueOf(response.getSuicides()), true);
+        builder.addField("K/D", String.valueOf(response.getKd()), true);
         channel.sendMessage(builder.build()).queue();
     }
 
