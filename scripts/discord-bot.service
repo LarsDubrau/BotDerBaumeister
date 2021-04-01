@@ -1,0 +1,12 @@
+[Unit]
+Description=Bot der Baumeister Discord Bot
+[Service]
+User=root
+WorkingDirectory=/home/discord-bot
+ExecStart=/home/discord-bot/start-service
+SuccessExitStatus=143
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
+[Install]
+WantedBy=multi-user.target

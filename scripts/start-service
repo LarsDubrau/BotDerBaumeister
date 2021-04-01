@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo /usr/bin/java -jar BotDerBaumeister-0.9-jar-with-dependencies.jar config.json

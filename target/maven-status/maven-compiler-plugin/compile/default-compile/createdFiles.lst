@@ -1,0 +1,16 @@
+de/bobmc/discord_bot/commands/CommandManager.class
+de/bobmc/discord_bot/listeners/ActivityStatsListener.class
+de/bobmc/discord_bot/apis/AdviceSlipApi.class
+de/bobmc/discord_bot/utils/ApiRequestHelper.class
+de/bobmc/discord_bot/commands/AdviceCommand.class
+de/bobmc/discord_bot/apis/TenorGifApi.class
+de/bobmc/discord_bot/commands/Command.class
+de/bobmc/discord_bot/listeners/GreetingsListener.class
+de/bobmc/discord_bot/apis/R6StatsStats.class
+de/bobmc/discord_bot/Main.class
+de/bobmc/discord_bot/model/UserActivity.class
+de/bobmc/discord_bot/utils/ConfigManager.class
+de/bobmc/discord_bot/commands/ActivityStatsCommand.class
+de/bobmc/discord_bot/commands/R6StatsCommand.class
+de/bobmc/discord_bot/utils/Database.class
+de/bobmc/discord_bot/utils/DateUtils.class
