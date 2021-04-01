@@ -19,7 +19,6 @@ public class R6UserStats {
     private int gadgetsDestroyed;
 
     public static R6UserStats fromJson(JSONObject json){
-        System.out.println("Create user stats from json: \n" + json.toString(3));
         JSONObject stats = json.getJSONObject("stats").getJSONObject("general");
 
         R6UserStatsBuilder builder = R6UserStatsBuilder.aR6UserStats()
@@ -76,7 +75,6 @@ public class R6UserStats {
     }
 
     public double getKd() {
-        System.out.println("kd is " + kd);
         return kd;
     }
 
