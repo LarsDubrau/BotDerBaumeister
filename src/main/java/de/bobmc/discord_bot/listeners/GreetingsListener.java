@@ -12,6 +12,10 @@ import java.util.concurrent.TimeUnit;
 public class GreetingsListener extends ListenerAdapter {
     @Override
     public void onGuildVoiceJoin(@NotNull GuildVoiceJoinEvent event) {
+        //not sedning gif to bots joining the channel
+        if(event.getMember().getUser().isBot()){
+            return;
+        }
         Logging.getInstance().logInfo("Loading welcome give for " +
                 event.getMember().getEffectiveName() +
                 " in channel " + event.getChannelJoined().getName());
