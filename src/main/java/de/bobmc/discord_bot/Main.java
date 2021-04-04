@@ -3,6 +3,7 @@ package de.bobmc.discord_bot;
 import de.bobmc.discord_bot.commands.AdviceCommand;
 import de.bobmc.discord_bot.commands.CommandManager;
 import de.bobmc.discord_bot.commands.R6StatsCommand;
+import de.bobmc.discord_bot.commands.UselessFactCommand;
 import de.bobmc.discord_bot.listeners.GreetingsListener;
 import de.bobmc.discord_bot.utils.ConfigManager;
 import de.bobmc.discord_bot.utils.Logging;
@@ -29,6 +30,7 @@ public class Main {
             //commandManager.addCommand(new ActivityStatsCommand());
             commandManager.addCommand(new AdviceCommand());
             commandManager.addCommand(new R6StatsCommand());
+            commandManager.addCommand(new UselessFactCommand());
 
             //add listeners
             jda.addEventListener(commandManager);
