@@ -16,10 +16,16 @@ public class GreetingsListener extends ListenerAdapter {
         if(event.getMember().getUser().isBot()){
             return;
         }
+
         Logging.getInstance().logInfo("Loading welcome give for " +
                 event.getMember().getEffectiveName() +
                 " in channel " + event.getChannelJoined().getName());
         String gifUrl = TenorGifApi.getRandomGifByQuery("bob the builder");
+
+        //troll
+        if(event.getMember().getEffectiveName().equals("venti")){
+            gifUrl = TenorGifApi.getRandomGifByQuery("fuck off");
+        }
 
         EmbedBuilder builder = new EmbedBuilder();
         builder.setTitle("Hallo " + event.getMember().getEffectiveName());
