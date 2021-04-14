@@ -29,6 +29,7 @@ public class Main {
             commandManager.addCommand(new R6StatsCommand());
             commandManager.addCommand(new UselessFactCommand());
             commandManager.addCommand(new DropRateCommand());
+            commandManager.addCommand(new GifCommand());
 
             //add listeners
             jda.addEventListener(commandManager);

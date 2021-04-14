@@ -39,6 +39,9 @@ public class CommandManager extends ListenerAdapter {
 
     @Override
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
+        if(!event.getChannel().getName().equals("bobmeister")){
+            return;
+        }
         String message = event.getMessage().getContentRaw();
         if (message.startsWith("!")) {
             String[] args = message.split(" ");

@@ -15,7 +15,7 @@ public class DropRateCommand implements Command {
         List<DropRate> highest = Database.getInstance().getFirstThreeHighest();
         EmbedBuilder builder = new EmbedBuilder();
         builder.setTitle("Höchste Pack Wahrscheinlichkeit aller Zeiten");
-        builder.setImage(TenorGifApi.getRandomGifByQuery("congratulations"));
+        builder.setImage(TenorGifApi.getRandomGifByQuery("winner"));
         for (int i = 0; i < highest.size(); i++) {
             DropRate rate = highest.get(i);
             builder.addField(
