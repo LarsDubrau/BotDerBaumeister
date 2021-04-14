@@ -31,7 +31,7 @@ public class Database {
     public List<DropRate> getFirstThreeHighest(){
         List<DropRate> result = new ArrayList<>();
 
-        MongoCollection collection = client.getDatabase("BobMC").getCollection("drop_rates");
+        MongoCollection collection = client.getDatabase("BobMC").getCollection("dropRecord");
         Document sort  = new Document().append("dropRate", -1);
         collection.find().sort(sort).limit(3).forEach((Consumer) o -> {
             Document doc = (Document) o;
