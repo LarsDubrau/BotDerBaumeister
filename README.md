@@ -13,7 +13,8 @@ Zum Ausführen wird eine Konfigurationsdatei benötigt, die wie folgt aufgebaut 
     "botToken": "<Discord Application Token>",
     "tenorApiToken": "<Access token to tenor api>",
     "mongoDbConnectionString": "<connection string of mongo db>",
-    "r6StatsApiToken": "<Access token to r6stats-API"
+    "r6StatsApiToken": "<Access token to r6stats-API",
+    "logFilePath": "path/to/logfile.log"
 }
 ```
 
