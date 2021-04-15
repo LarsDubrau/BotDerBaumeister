@@ -34,6 +34,6 @@ public class GifCommand implements Command{
 
     @Override
     public String getUsage() {
-        return null;
+        return "Zeigt dir ein gif mit dem eingegebenenm Thema";
     }
 }

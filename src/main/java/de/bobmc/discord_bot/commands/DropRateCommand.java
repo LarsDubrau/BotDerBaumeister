@@ -34,6 +34,7 @@ public class DropRateCommand implements Command {
 
     @Override
     public String getUsage() {
-        return null;
+        return "Zeigt, wer die höchste Pack-Wahrscheinlichkeit seit Beginn " +
+                "der Aufzeichnung (14.04.2021) hatte";
     }
 }
