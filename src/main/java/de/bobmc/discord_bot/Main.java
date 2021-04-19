@@ -24,7 +24,6 @@ public class Main {
 
             //create command manager and add supported commands
             CommandManager commandManager = new CommandManager();
-            //commandManager.addCommand(new ActivityStatsCommand());
             commandManager.addCommand(new AdviceCommand());
             commandManager.addCommand(new R6StatsCommand());
             commandManager.addCommand(new UselessFactCommand());
@@ -34,7 +33,6 @@ public class Main {
             //add listeners
             jda.addEventListener(commandManager);
             jda.addEventListener(new GreetingsListener());
-            //jda.addEventListener(new ActivityStatsListener());
         } catch (LoginException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
