@@ -72,7 +72,12 @@ public class Database {
         collection.find().forEach((Consumer) o -> {
             Document doc = (Document) o;
             String username = doc.getString("username");
-            long time = doc.getDate("end").getTime() - doc.getDate("start").getTime();
+            Date start = doc.getDate("start");
+            Date end = new Date();
+            if(doc.get("end") != null){
+                end = doc.getDate("end");
+            }
+            long time = end.getTime() - start.getTime();
             time = time / 1000; //convert to seconds
             if(result.containsKey(username)){
                 result.get(username).addTime(time);
