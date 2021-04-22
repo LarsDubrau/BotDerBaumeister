@@ -17,6 +17,9 @@ public class TenorGifApi {
         try {
             JSONObject jsonObject = ApiRequestHelper.makeGetRequest(url);
             JSONArray gifs = jsonObject.getJSONArray("results");
+            if(gifs.length() == 0){
+                return null;
+            }
             JSONObject gif = gifs.getJSONObject(new Random().nextInt(gifs.length()));
             return gif.getJSONArray("media").getJSONObject(0).getJSONObject("tinygif").getString("url");
         } catch (IOException e) {

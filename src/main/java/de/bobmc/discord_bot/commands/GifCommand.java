@@ -8,7 +8,7 @@ import net.dv8tion.jda.api.entities.TextChannel;
 public class GifCommand implements Command{
     @Override
     public void run(String[] args, TextChannel channel, Member member) {
-        if(args.length < 1){
+        if(args.length < 2){
             channel.sendMessage("Gib einen Suchbegriff ein").queue();
             return;
         }
