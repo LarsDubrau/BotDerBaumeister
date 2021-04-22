@@ -16,7 +16,7 @@ public class VoiceTimeCommand implements Command{
         builder.setTitle("Voice Channel Zeiten");
         for(String username : times.keySet()){
             double timeInH = (double) times.get(username).getVoiceChannelTime() / 3600.0;
-            builder.addField(username, timeInH + "h", false);
+            builder.addField(username, String.format("%.2f", timeInH) + "h", false);
         }
         channel.sendMessage(builder.build()).queue();
     }

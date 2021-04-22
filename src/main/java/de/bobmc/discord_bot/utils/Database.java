@@ -56,7 +56,8 @@ public class Database {
     public void stopVoiceChannelSession(String username){
         MongoCollection collection = getCollection("voiceChannelTime");
         Document filter = new Document()
-                .append("username", username);
+                .append("username", username)
+                .append("end", null);
         Document update = new Document()
                 .append("$set", new Document().append("end", new Date()));
         collection.updateOne(
