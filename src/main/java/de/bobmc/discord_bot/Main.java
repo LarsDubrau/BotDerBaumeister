@@ -2,6 +2,7 @@ package de.bobmc.discord_bot;
 
 import de.bobmc.discord_bot.commands.*;
 import de.bobmc.discord_bot.listeners.GreetingsListener;
+import de.bobmc.discord_bot.listeners.VoiceChannelSessionsListener;
 import de.bobmc.discord_bot.utils.ConfigManager;
 import de.bobmc.discord_bot.utils.Logging;
 import net.dv8tion.jda.api.JDA;
@@ -29,10 +30,12 @@ public class Main {
             commandManager.addCommand(new UselessFactCommand());
             commandManager.addCommand(new DropRateCommand());
             commandManager.addCommand(new GifCommand());
+            commandManager.addCommand(new VoiceTimeCommand());
 
             //add listeners
             jda.addEventListener(commandManager);
             jda.addEventListener(new GreetingsListener());
+            jda.addEventListener(new VoiceChannelSessionsListener());
         } catch (LoginException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
