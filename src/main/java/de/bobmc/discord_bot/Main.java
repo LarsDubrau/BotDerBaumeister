@@ -26,16 +26,16 @@ public class Main {
             //create command manager and add supported commands
             CommandManager commandManager = new CommandManager();
             commandManager.addCommand(new AdviceCommand());
-            commandManager.addCommand(new R6StatsCommand());
+            //commandManager.addCommand(new R6StatsCommand());
             commandManager.addCommand(new UselessFactCommand());
-            commandManager.addCommand(new DropRateCommand());
+            //commandManager.addCommand(new DropRateCommand());
             commandManager.addCommand(new GifCommand());
-            commandManager.addCommand(new VoiceTimeCommand());
+            //commandManager.addCommand(new VoiceTimeCommand());
 
             //add listeners
             jda.addEventListener(commandManager);
-            jda.addEventListener(new GreetingsListener());
-            jda.addEventListener(new VoiceChannelSessionsListener());
+            //jda.addEventListener(new GreetingsListener());
+            //jda.addEventListener(new VoiceChannelSessionsListener());
         } catch (LoginException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
